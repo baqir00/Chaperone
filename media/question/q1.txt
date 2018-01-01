@@ -1,0 +1,3 @@
+Having a good previous year, Monk is back to teach algorithms and data structures. This year he welcomes the learners with a problem which he calls "Welcome Problem". The problem gives you two arrays
+A andB (each array of sizeN) and asks to print new arrayC such that: C[i]=A[i]+B[i]C[i]=A[i]+B[i]; 1≤i≤N1≤i≤N
+Now, Monk will proceed further when you solve this one. So, go on and solve it :)

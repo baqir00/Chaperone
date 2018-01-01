@@ -1,0 +1,46 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-brand">Chaperone</div>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% if request.get_full_path == home %}active{% endif %}">
+                <a class="nav-link" href="{% url 'main:index' %}">Home</a>
+            </li>
+            <li class="nav-item {% if request.get_full_path == posts %}active{% endif %}">
+                <a class="nav-link" href="{% url 'main:contest' %}">Contest</a>
+            </li>
+            <li class="nav-item {% if discussions in request.get_full_path %}active{% endif %}">
+                <a class="nav-link" href="">Pricing</a>
+            </li>
+            <li class="nav-item {% if request.get_full_path == about %}active{% endif %}">
+                <a class="nav-link" href="">About</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if not user.is_authenticated %}
+                <li class="nav-item {% if request.get_full_path == login %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'main:login' %}">Log In</a>
+                </li>
+                <li class="nav-item {% if request.get_full_path == signup %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'main:signup' %}">Sign Up</a>
+                </li>
+                {% else %}
+                <li class="nav-item dropdown {% if request.get_full_path == profile %}active{% endif %}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+
+                    <div class="dropdown-menu" style=" right: 0;left: auto;" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="">Results</a>
+                        <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

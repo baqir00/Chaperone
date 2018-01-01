@@ -1,0 +1,1 @@
+Print N space separated integers denoting the array C.

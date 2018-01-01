@@ -1,0 +1,77 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Sign in{% endblock %}
+{% block body %}
+    <div class="container">
+    <h3>Round 2</h3><hr>
+        <h4>Problem</h4>
+        <div class="row">
+            <div class="col-10 offset-1">
+                    <p>
+                        {{ q }}
+                    </p>
+            </div>
+        </div>
+        <h4>Input</h4>
+        <div class="row">
+                <div class="col-10 offset-1">
+                        <p>
+                              {{ i }}
+                        </p>
+                </div>
+        </div>
+        <h4>Output</h4>
+        <div class="row">
+                <div class="col-10 offset-1">
+                        <p>
+                            {{ o }}
+                        </p>
+                </div>
+        </div>
+        <h4>Constraints</h4>
+        <div class="row">
+                <div class="col-10 offset-1">
+                        <p>
+                          <code>
+                              {{ c }}
+                          </code>
+
+                        </p>
+                </div>
+        </div>
+    <h4>Code</h4>
+        <div class="row">
+                <div class="col-11 offset-1">
+                       <textarea rows="20" cols="120" id="code"></textarea>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 offset-lg-1">
+                <select class="form-control" id="lang">
+                    <option>C</option>
+                    <option>CPP</option>
+                    <option>CPP11</option>
+                    <option>JAVA</option>
+                    <option>PYTHON</option>
+                    <option>PHP</option>
+                  </select>
+                </div>
+                <div class="col-lg-1 offset-5">
+                    <button class="btn btn-danger" id="compile">Compile</button>
+                </div>
+                <div class="col-lg-1">
+                    <button class="btn btn-success" id="run">Run</button>
+                </div>
+        </div><br><br>
+    <div class="row">
+        <div class="col-6 offset-1">
+        <div class="alert alert-success d-none" role="alert" id="message">
+
+        </div>
+            <div class="d-none" id="id">
+                {{ id }}
+        </div>
+            </div>
+    </div>
+        </div><br><br><br><br><br>
+{% endblock %}

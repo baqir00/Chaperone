@@ -1,0 +1,54 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Sign in{% endblock %}
+{% block body %}
+    <div class="container">
+    <h3>Round 1</h3><hr>
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <h4>SPOJ</h4><br>
+                    <input id="spoj" type="text" placeholder="username"/>
+                    <button class="btn btn-success" id="spojbtn">Submit</button>&nbsp;
+                    <button class="btn btn-danger" id="spojbtna" style="height: 40px; width: 50px;"></button>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <h4>Hackerearth</h4><br>
+                    <input id="hackerearth" type="text" placeholder="username"/>
+                    <button class="btn btn-success" id="hackerearthbtn">Submit</button>&nbsp;
+                    <button class="btn btn-danger" id="hackerearthbtna" style="height: 40px; width: 50px;"></button>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <h4>Codechef</h4><br>
+                    <input id="codechef" type="text" placeholder="username"/>
+                    <button class="btn btn-success" id="codechefbtn">Submit</button>&nbsp;
+                    <button class="btn btn-danger" id="codechefbtna" style="height: 40px; width: 50px;"></button>
+                </div>
+            </div><br>
+    <div class="row">
+                <div class="col-10 offset-1">
+                    <h4>Upload CV</h4><br>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" name="file">
+                        <button type="submit">Upload</button>
+                      </form>
+
+                      {% if uploaded_file_url %}
+                        <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+                      {% endif %}
+                </div>
+
+            </div>
+            <div class="row">
+                    <div class="col-3 offset-9">
+                       <a href="{% url 'main:r2' %}"> <button class="btn btn-primary">Jump to round 2</button></a>
+                    </div>
+                </div>
+        <br>
+
+    </div>
+{% endblock %}
